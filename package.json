@@ -1,0 +1,24 @@
+{
+  "name": "fruitsdb",
+  "version": "1.0.0",
+  "description": "practice using MongoDB and Mongoose",
+  "main": "app.js",
+  "dependencies": {
+    "mongoose": "^5.7.6",
+    "node": "^12.12.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kjbhargava/fruitsDB.git"
+  },
+  "author": "karan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kjbhargava/fruitsDB/issues"
+  },
+  "homepage": "https://github.com/kjbhargava/fruitsDB#readme"
+}
