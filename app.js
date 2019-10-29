@@ -12,7 +12,7 @@ const fruitSchema = new mongoose.Schema ({
     name: {
         type: String,
         min: 1,
-        required: [true, "You're into nameless fruit?! No way. Try again"]
+        //required: [true, "You're into nameless fruit?! No way. Try again"]
     },
     rating: {
         type: Number,
@@ -36,18 +36,54 @@ const fruit = new Fruit({
 
 
 //fruit.save saves the fruit document inside the fruit collection inside the fruits DB
-fruit.save();
+//fruit.save();
 
 const peopleSchema = new mongoose.Schema({
     name: String,
-    age: Number
+    age: Number,
+    favoriteFruit: fruitSchema
 });
 
 const Person = mongoose.model("Person", peopleSchema);
 
+const pineapple = new Fruit({
+    name: "Pineapple",
+    rating: 8,
+    review: "Great fruityyyyyy"
+});
+
+const mango = new Fruit({
+    name: "Mango",
+    rating: 10,
+    review: "The best fruit out there"
+});
+
+//pineapple.save();
+mango.save();
+
 const person = new Person({
-    name: "John",
-    age: 37
+    name: "Amy",
+    age: 12,
+    favoriteFruit: pineapple
+});
+
+// Person.deleteMany({name: "John"}, function(err){
+//     if (err){
+//         console.log(err);
+//     }
+//
+//     else{
+//         console.log("Successfully deleted");
+//     }
+// });
+
+Person.updateOne({name: "John"}, {favoriteFruit: mango}, function(err){
+    if (err){
+        console.log(err);
+    }
+    else {
+        console.log("John successfully updated");
+    }
 });
 
 //person.save();
@@ -93,3 +129,22 @@ const person = new Person({
             });
         }
     });
+
+
+    // Fruit.updateOne({_id: "5db6b1503b41b54694bf59eb"}, {name: "Peach"}, function(err){
+    //     if (err){
+    //         console.log(err);
+    //     }
+    //     else {
+    //         console.log("Successfully updated");
+    //     }
+    // });
+
+    // Fruit.deleteOne({_id: "5db6b0390c2fb53088385489"}, function(err){
+    //     if (err){
+    //         console.log(err);
+    //     }
+    //     else {
+    //         console.log("Successfully deleted");
+    //     }
+    // });
